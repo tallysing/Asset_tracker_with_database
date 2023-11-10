@@ -3,56 +3,58 @@ using Asset_tracker_with_database;
 
 AssetDbContext Context = new AssetDbContext();
 
-while (true)
-{
-    Asset asset = new Asset();
+Console.WriteLine("Testing");
 
-    Console.Write("Please enter the asset type: ");
+//while (true)
+//{
+//    Asset asset = new Asset();
 
-    asset.Type = Console.ReadLine();
+//    Console.Write("Please enter the asset type: ");
 
-    Console.Write("Please enter the asset brand: ");
+//    asset.Type = Console.ReadLine();
 
-    asset.Brand = Console.ReadLine();
+//    Console.Write("Please enter the asset brand: ");
 
-    Console.Write("Please enter the asset model: ");
+//    asset.Brand = Console.ReadLine();
 
-    asset.AssetModel = Console.ReadLine();
+//    Console.Write("Please enter the asset model: ");
 
-    Console.Write("Please provide the location of the office; Sweden, Spain or USA: ");
+//    asset.AssetModel = Console.ReadLine();
 
-    asset.Office = Console.ReadLine();
+//    Console.Write("Please provide the location of the office; Sweden, Spain or USA: ");
 
-    Console.Write("Use this format (dd/mm/yyyy) to type the purchase date of the asset: ");
+//    asset.Office = Console.ReadLine();
 
-    DateTime date;
+//    Console.Write("Use this format (dd/mm/yyyy) to type the purchase date of the asset: ");
 
-    while (!DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out date)) // Verify valid date format
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
+//    DateTime date;
 
-        Console.Write("You have entered an invalid date format. Please try again (dd/mm/yyyy): ");
+//    while (!DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out date)) // Verify valid date format
+//    {
+//        Console.ForegroundColor = ConsoleColor.Red;
 
-        Console.ResetColor();
-    }
-    asset.PurchaseDate= date;
+//        Console.Write("You have entered an invalid date format. Please try again (dd/mm/yyyy): ");
 
-    Console.Write("Please fill in the dollar price of the asset: ");
+//        Console.ResetColor();
+//    }
+//    asset.PurchaseDate= date;
 
-    int price;
+//    Console.Write("Please fill in the dollar price of the asset: ");
 
-    while (!int.TryParse(Console.ReadLine(), out price)) // Valid number verification
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
+//    int price;
 
-        Console.WriteLine("Only whole numbers are permitted, so please try again: ");
+//    while (!int.TryParse(Console.ReadLine(), out price)) // Valid number verification
+//    {
+//        Console.ForegroundColor = ConsoleColor.Red;
 
-        Console.ResetColor();
+//        Console.WriteLine("Only whole numbers are permitted, so please try again: ");
 
-    }
-    asset.USDprice = price;
+//        Console.ResetColor();
 
-    Context.Asssets.Add(asset);
+//    }
+//    asset.USDprice = price;
 
-    Context.SaveChanges();
-}
+//    Context.Asssets.Add(asset);
+
+//    Context.SaveChanges();
+//}

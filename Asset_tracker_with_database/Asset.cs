@@ -8,15 +8,6 @@ namespace Asset_tracker_with_database
 {
     internal class Asset
     {
-        //public Asset(string type, string brand, string assetModel, string office, DateTime purchaseDate, int usdPrice)
-        //{
-        //    Type = type;
-        //    Brand = brand;
-        //    AssetModel = assetModel;
-        //    Office = office;
-        //    PurchaseDate = purchaseDate;
-        //    USDprice = usdPrice;
-        //}
         public int Id {  get; set; }
         public string Type { get; set; }
         public string Brand { get; set; }
