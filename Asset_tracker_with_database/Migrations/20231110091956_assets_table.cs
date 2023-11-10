@@ -19,7 +19,7 @@ namespace Asset_tracker_with_database.Migrations
                     Brand = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AssetModel = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Office = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PurchaseDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PurchaseDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     USDprice = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
