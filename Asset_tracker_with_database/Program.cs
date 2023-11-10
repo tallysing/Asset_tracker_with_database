@@ -1,14 +1,9 @@
 ﻿
 using Asset_tracker_with_database;
+using System.ComponentModel.Design;
 
 AssetDbContext Context = new AssetDbContext();
 
+Interface.Selection();
 
 
-
-//List<Asset> assets = Context.Assets.ToList();
-
-//foreach (var asset in assets)
-//{
-//    Console.WriteLine(asset.PurchaseDate);
-//}
