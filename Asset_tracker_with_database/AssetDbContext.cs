@@ -9,9 +9,9 @@ namespace Asset_tracker_with_database
 {
     internal class AssetDbContext:DbContext
     {
-        string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=User;Integrated Security=True"; // Entity framework creates non existing database
+        string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Assets;Integrated Security=True"; // Entity framework creates non existing database
 
-        public DbSet<Asset> Asssets { get; set; } //Table Name
+        public DbSet<Asset> Computer { get; set; } //Table Name
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {            // We tell the app to use the connectionstring.
             optionsBuilder.UseSqlServer(connectionString);
