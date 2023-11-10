@@ -1,7 +1,7 @@
 ﻿
 using Asset_tracker_with_database;
 
-AssetDbContext Context = new AssetDbContext();
+//AssetDbContext Context = new AssetDbContext();
 
 
 while (true)
@@ -53,7 +53,7 @@ while (true)
     }
     asset.USDprice = price;
 
-    Context.Assets.Add(asset);
-
-    Context.SaveChanges();
+    //Context.Assets.Add(asset);
+    Console.WriteLine(asset.USDprice);
+    //Context.SaveChanges();
 }
