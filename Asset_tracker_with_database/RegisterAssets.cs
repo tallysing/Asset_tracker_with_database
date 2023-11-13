@@ -8,7 +8,7 @@ namespace Asset_tracker_with_database
 {
     internal class RegisterAssets
     {
-        void RegisterData(AssetDbContext Context)
+        public static void RegisterData(AssetDbContext Context)
         {
             while (true)
             {
@@ -42,7 +42,8 @@ namespace Asset_tracker_with_database
 
                     Console.ResetColor();
                 }
-                asset.PurchaseDate = date.ToString("dd/MM/yyyy");
+                Console.WriteLine(date.Date.ToShortTimeString());
+                asset.PurchaseDate = date.Date.ToShortDateString();
 
                 Console.Write("Please fill in the dollar price of the asset: ");
 
@@ -59,7 +60,7 @@ namespace Asset_tracker_with_database
                 }
                 asset.USDprice = price;
 
-                Context.Assets.Add(asset);
+                Context.Computer.Add(asset);
 
                 Context.SaveChanges();
             }
