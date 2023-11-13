@@ -10,7 +10,7 @@ namespace Asset_tracker_with_database
     {
         public static void RegisterData(AssetDbContext Context)
         {
-            while (true)
+            do
             {
                 Asset asset = new Asset();
 
@@ -60,10 +60,21 @@ namespace Asset_tracker_with_database
                 }
                 asset.USDprice = price;
 
-                Context.Computer.Add(asset);
+                Context.Assets.Add(asset);
 
                 Context.SaveChanges();
+
+                Console.ForegroundColor = ConsoleColor.Green;
+
+                Console.WriteLine("A new asset have been registered!");
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+
+                Console.Write("Press the 'Q' key when you are finished, or press enter if you want to continue registering assets.");
+
+                Console.ResetColor();
             }
+            while (Console.ReadLine().ToUpper() != "Q");
         }
     }
 }

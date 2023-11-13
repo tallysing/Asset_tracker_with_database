@@ -12,7 +12,7 @@ namespace Asset_tracker_with_database
         {
             Console.ForegroundColor = ConsoleColor.Blue;
 
-            Console.WriteLine("To register a computer enter \"C\" | To register a phone enter \"P\" | To view your assets enter \"A\" | To quit enter \"Q\" ");
+            Console.WriteLine("To register an asset enter \"R\" | To view your assets enter \"A\" | To quit enter \"Q\" ");
 
             Console.ResetColor();
 
