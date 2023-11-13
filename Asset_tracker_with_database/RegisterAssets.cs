@@ -75,6 +75,8 @@ namespace Asset_tracker_with_database
                 Console.ResetColor();
             }
             while (Console.ReadLine().ToUpper() != "Q");
+
+            Interface.Selection();
         }
     }
 }

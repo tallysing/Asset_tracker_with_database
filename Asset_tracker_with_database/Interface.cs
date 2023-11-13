@@ -22,7 +22,7 @@ namespace Asset_tracker_with_database
                 case "R": RegisterAssets.RegisterData(Context);
                 break;
 
-                case "V": List<Asset> assets = Context.Assets.ToList();
+                case "V": ViewAssets.Table(Context);
                 break;
 
                 default: Console.ForegroundColor= ConsoleColor.Red;
