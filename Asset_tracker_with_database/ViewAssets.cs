@@ -15,7 +15,7 @@ namespace Asset_tracker_with_database
             int rightSpaces = totalSpaces - leftSpaces;
             return new string(' ', leftSpaces) + text + new string(' ', rightSpaces);
         }
-        private Dictionary<string, decimal> CurrencyPrice(Asset asset) // Corresponds the country's currency price
+        private static Dictionary<string, decimal> CurrencyPrice(Asset asset) // Corresponds the country's currency price
         {
             switch (asset.Office)
             {
@@ -38,7 +38,7 @@ namespace Asset_tracker_with_database
             }
         }
 
-        private void TableRows(Asset asset) // Holds the table rows template
+        private static void TableRows(Asset asset) // Holds the table rows template
         {
             var exchangeCurrency = CurrencyPrice(asset);
 
@@ -67,6 +67,13 @@ namespace Asset_tracker_with_database
             Console.WriteLine(new string('-', 133));
 
             Console.ResetColor();
+
+            var sortedAssets = assets.OrderBy(asset => asset.Type).ThenBy(asset => asset.PurchaseDate);
+
+            foreach (Asset asset in sortedAssets)
+            {
+                TableRows(asset);
+            }
         }
     }
 }
