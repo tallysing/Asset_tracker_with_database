@@ -1,8 +1,8 @@
 ﻿
 using Asset_tracker_with_database;
 
-AssetDbContext Context = new AssetDbContext();
+//AssetDbContext Context = new AssetDbContext();
 
-//Interface.Selection();
+Interface.Selection();
 
-RegisterAssets.RegisterData(Context);
+//RegisterAssets.RegisterData(Context);

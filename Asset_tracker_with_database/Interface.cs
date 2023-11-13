@@ -8,20 +8,21 @@ namespace Asset_tracker_with_database
 {
     internal class Interface
     {
+       static AssetDbContext Context = new AssetDbContext();
         public static void Selection()
         {
             Console.ForegroundColor = ConsoleColor.Blue;
 
-            Console.WriteLine("To register an asset enter \"R\" | To view your assets enter \"A\" | To quit enter \"Q\" ");
+            Console.WriteLine("To register an asset enter \"R\" | To view your assets enter \"V\" ");
 
             Console.ResetColor();
 
             switch (Console.ReadLine().ToUpper())
             {
-                case "C": Console.WriteLine("PC");
+                case "R": RegisterAssets.RegisterData(Context);
                 break;
 
-                case "P": Console.WriteLine("Phone");
+                case "V": List<Asset> assets = Context.Assets.ToList();
                 break;
 
                 default: Console.ForegroundColor= ConsoleColor.Red;
