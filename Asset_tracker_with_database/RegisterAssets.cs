@@ -42,8 +42,9 @@ namespace Asset_tracker_with_database
 
                     Console.ResetColor();
                 }
-                Console.WriteLine(date.Date.ToShortTimeString());
-                asset.PurchaseDate = date.Date.ToShortDateString();
+                //asset.PurchaseDate = date.Date.ToShortDateString();
+
+                asset.PurchaseDate = date;
 
                 Console.Write("Please fill in the dollar price of the asset: ");
 

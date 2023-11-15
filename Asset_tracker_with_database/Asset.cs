@@ -13,7 +13,7 @@ namespace Asset_tracker_with_database
         public string Brand { get; set; }
         public string AssetModel { get; set; }
         public string Office { get; set; }
-        public string PurchaseDate { get; set; }
+        public DateTime PurchaseDate { get; set; }
         public int USDprice { get; set; }
     }
 }

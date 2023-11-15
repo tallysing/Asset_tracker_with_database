@@ -52,7 +52,7 @@ namespace Asset_tracker_with_database
             {
                 localPrice = asset.USDprice * exchangeCurrency.ElementAt(0).Value;
             }
-            Console.WriteLine("| {0} | {1} | {2} | {3} | {4} | {5} | {6} | {7} |", PadCenter(asset.Type, 13), PadCenter(asset.Brand, 13), PadCenter(asset.AssetModel, 13), PadCenter(asset.Office, 13), PadCenter(asset.PurchaseDate, 13), PadCenter(asset.USDprice.ToString(), 13), PadCenter(exchangeCurrency.ElementAt(0).Key, 13), PadCenter(localPrice.ToString(), 17));
+            Console.WriteLine("| {0} | {1} | {2} | {3} | {4} | {5} | {6} | {7} |", PadCenter(asset.Type, 13), PadCenter(asset.Brand, 13), PadCenter(asset.AssetModel, 13), PadCenter(asset.Office, 13), PadCenter(asset.PurchaseDate.Date.ToShortDateString(), 13), PadCenter(asset.USDprice.ToString(), 13), PadCenter(exchangeCurrency.ElementAt(0).Key, 13), PadCenter(localPrice.ToString(), 17));
         }
         public static void Table(AssetDbContext Context)
         {
@@ -72,7 +72,28 @@ namespace Asset_tracker_with_database
 
             foreach (Asset asset in sortedAssets)
             {
-                TableRows(asset);
+                TimeSpan timeSpan = DateTime.Now - asset.PurchaseDate; // Checking assets lifecycle
+
+                if (timeSpan >= TimeSpan.FromDays(365 * 3 - 180))
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+
+                    TableRows(asset);
+
+                    Console.ResetColor();
+                }
+                if (timeSpan >= TimeSpan.FromDays(365 * 3 - 90))
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+
+                    TableRows(asset);
+
+                    Console.ResetColor();
+                }
+                else
+                {
+                    TableRows(asset);
+                }
             }
         }
     }
