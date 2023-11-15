@@ -52,7 +52,7 @@ namespace Asset_tracker_with_database
             {
                 localPrice = asset.USDprice * exchangeCurrency.ElementAt(0).Value;
             }
-            Console.WriteLine("| {0} | {1} | {2} | {3} | {4} | {5} | {6} | {7} |", PadCenter(asset.Type, 13), PadCenter(asset.Brand, 13), PadCenter(asset.AssetModel, 13), PadCenter(asset.Office, 13), PadCenter(asset.PurchaseDate.Date.ToShortDateString(), 13), PadCenter(asset.USDprice.ToString(), 13), PadCenter(exchangeCurrency.ElementAt(0).Key, 13), PadCenter(localPrice.ToString(), 17));
+            Console.WriteLine("| {0} | {1} | {2} | {3} | {4} | {5} | {6} | {7} |", PadCenter(asset.Type, 13), PadCenter(asset.Brand, 18), PadCenter(asset.AssetModel, 18), PadCenter(asset.Office, 13), PadCenter(asset.PurchaseDate.Date.ToShortDateString(), 13), PadCenter(asset.USDprice.ToString(), 13), PadCenter(exchangeCurrency.ElementAt(0).Key, 13), PadCenter(localPrice.ToString(), 17));
         }
         public static void Table(AssetDbContext Context)
         {
@@ -62,7 +62,7 @@ namespace Asset_tracker_with_database
 
             Console.WriteLine(new string('-', 133));
 
-            Console.WriteLine("| {0} | {1} | {2} | {3} | {4} | {5} | {6} | {7} |", PadCenter("Type", 13), PadCenter("Brand", 13), PadCenter("Model", 13), PadCenter("Office", 13), PadCenter("Purchase Date", 13), PadCenter("Price in USD", 13), PadCenter("Currency", 13), "Local price today");
+            Console.WriteLine("| {0} | {1} | {2} | {3} | {4} | {5} | {6} | {7} |", PadCenter("Type", 13), PadCenter("Brand", 18), PadCenter("Model", 18), PadCenter("Office", 13), PadCenter("Purchase Date", 13), PadCenter("Price in USD", 13), PadCenter("Currency", 13), "Local price today");
 
             Console.WriteLine(new string('-', 133));
 
@@ -74,17 +74,17 @@ namespace Asset_tracker_with_database
             {
                 TimeSpan timeSpan = DateTime.Now - asset.PurchaseDate; // Checking assets lifecycle
 
-                if (timeSpan >= TimeSpan.FromDays(365 * 3 - 180))
+                if (timeSpan >= TimeSpan.FromDays(365 * 3 - 90))
                 {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Red;
 
                     TableRows(asset);
 
                     Console.ResetColor();
                 }
-                if (timeSpan >= TimeSpan.FromDays(365 * 3 - 90))
+                else if (timeSpan >= TimeSpan.FromDays(365 * 3 - 180))
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Magenta;
 
                     TableRows(asset);
 
@@ -94,6 +94,7 @@ namespace Asset_tracker_with_database
                 {
                     TableRows(asset);
                 }
+
             }
         }
     }
