@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Asset_tracker_with_database
 {
-    internal class RegisterAssets
+    internal class RegisterAssets // Handles how the data is registered and stored to database.
     {
         public static void RegisterData(AssetDbContext Context)
         {
@@ -42,7 +37,6 @@ namespace Asset_tracker_with_database
 
                     Console.ResetColor();
                 }
-                //asset.PurchaseDate = date.Date.ToShortDateString();
 
                 asset.PurchaseDate = date;
 
@@ -81,10 +75,3 @@ namespace Asset_tracker_with_database
         }
     }
 }
-
-//List<Asset> assets = Context.Assets.ToList();
-
-//foreach (var asset in assets)
-//{
-//    Console.WriteLine(asset.PurchaseDate);
-//}

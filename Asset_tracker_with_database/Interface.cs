@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Asset_tracker_with_database
 {
-    internal class Interface
+    internal class Interface // Display instructions and read user inputs.
     {
-       static AssetDbContext Context = new AssetDbContext();
-        public static void Selection()
+       static AssetDbContext Context = new AssetDbContext(); 
+        public static void Selection() // Handles selection options.
         {
             Console.ForegroundColor = ConsoleColor.Blue;
 
