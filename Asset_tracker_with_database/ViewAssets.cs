@@ -55,11 +55,11 @@ namespace Asset_tracker_with_database
 
             Console.ForegroundColor = ConsoleColor.Green; // Constructs the header columns.
 
-            Console.WriteLine(new string('-', 133));
+            Console.WriteLine(new string('-', 143));
 
             Console.WriteLine("| {0} | {1} | {2} | {3} | {4} | {5} | {6} | {7} |", PadCenter("Type", 13), PadCenter("Brand", 18), PadCenter("Model", 18), PadCenter("Office", 13), PadCenter("Purchase Date", 13), PadCenter("Price in USD", 13), PadCenter("Currency", 13), "Local price today");
 
-            Console.WriteLine(new string('-', 133));
+            Console.WriteLine(new string('-', 143));
 
             Console.ResetColor();
 

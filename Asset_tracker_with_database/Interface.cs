@@ -8,7 +8,7 @@ namespace Asset_tracker_with_database
         {
             Console.ForegroundColor = ConsoleColor.Blue;
 
-            Console.WriteLine("To register an asset enter \"R\" | To view your assets enter \"V\" ");
+            Console.WriteLine("To register an asset enter \"R\" | To view your assets enter \"V\" To delete assets' enter \"D\"");
 
             Console.ResetColor();
 

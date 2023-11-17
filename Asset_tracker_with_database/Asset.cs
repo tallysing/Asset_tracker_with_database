@@ -10,5 +10,14 @@ namespace Asset_tracker_with_database
         public string Office { get; set; }
         public DateTime PurchaseDate { get; set; }
         public int USDprice { get; set; }
+
+        void Delete(AssetDbContext Context)
+        {
+            Console.WriteLine("Please, enter the model name of the asset you want to delete: ");
+
+            string assetModel=Console.ReadLine();
+
+            
+        }
     }
 }
