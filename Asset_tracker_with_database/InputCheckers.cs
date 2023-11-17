@@ -7,14 +7,22 @@ namespace Asset_tracker_with_database
     {
         public static bool OfficeCheck(string input)
         {
-
+            
             switch (input)
             {
-                case "[Ss]pain": return false;
+                case "Spain":
+                case "spain":
+                    return false;
 
-                case "[Ss]weden": return false;
+                case "Sweden":
+                case "sweden":
+                    return false;
 
-                case @"\b(U\.?S\.?A\.?)\b": return false;
+                case "USA":
+                case "usa":
+                case "US":
+                case "us":
+                    return false;
 
                     default : return true;
             }
