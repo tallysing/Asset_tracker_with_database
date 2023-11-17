@@ -23,16 +23,17 @@ namespace Asset_tracker_with_database
 
                 Console.Write("Please provide the location of the office; Sweden, Spain or USA: ");
 
-                while (InputCheckers.OfficeCheck(Console.ReadLine())){
-                    Console.WriteLine(InputCheckers.OfficeCheck(Console.ReadLine()));
+                string office= Console.ReadLine();
+
+                while (InputCheckers.OfficeCheck(office)){ // Checking office
 
                     Console.ForegroundColor= ConsoleColor.Red;
 
-                    Console.WriteLine($"You don't have an office in {Console.ReadLine()}. Please try another office.");
+                    Console.WriteLine($"You don't have an office in {office}. Please try another office.");
 
                     Console.ResetColor();
                 }
-                asset.Office = Console.ReadLine();
+                asset.Office = office;
 
                 Console.Write("Use this format (dd/mm/yyyy) to type the purchase date of the asset: ");
 
@@ -72,7 +73,7 @@ namespace Asset_tracker_with_database
 
                 Console.WriteLine("A new asset have been registered!");
 
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.Blue;
 
                 Console.Write("Press the 'Q' key when you are finished, or press enter if you want to continue registering assets.");
 
