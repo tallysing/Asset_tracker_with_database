@@ -23,7 +23,14 @@ namespace Asset_tracker_with_database
 
                 Console.Write("Please provide the location of the office; Sweden, Spain or USA: ");
 
-                asset.Office = Console.ReadLine();
+                while (InputCheckers.OfficeCheck(Console.ReadLine())){
+
+                    Console.ForegroundColor= ConsoleColor.Red;
+
+                    Console.WriteLine($"You don't have an office in {Console.ReadLine()}. Please try another office.");
+
+                    Console.ResetColor();
+                }
 
                 Console.Write("Use this format (dd/mm/yyyy) to type the purchase date of the asset: ");
 

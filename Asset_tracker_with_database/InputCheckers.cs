@@ -5,18 +5,18 @@ namespace Asset_tracker_with_database
 {
     internal class InputCheckers
     {
-        bool OfficeCheck(string input)
+        public static bool OfficeCheck(string input)
         {
 
             switch (input)
             {
-                case "[Ss]pain": return true;
+                case "[Ss]pain": return false;
 
-                case "[Ss]weden": return true;
+                case "[Ss]weden": return false;
 
-                case @"\b(U\.?S\.?A\.?)\b": return true;
+                case @"\b(U\.?S\.?A\.?)\b": return false;
 
-                    default : return false;
+                    default : return true;
             }
         }
     }
