@@ -20,6 +20,8 @@ namespace Asset_tracker_with_database
                 case "V": ViewAssets.Table(Context);
                 break;
 
+                case "D": Asset.Delete(Context); break;
+
                 default: Console.ForegroundColor= ConsoleColor.Red;
 
                     Console.WriteLine("Wrong input!");

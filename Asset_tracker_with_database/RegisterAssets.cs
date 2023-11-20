@@ -29,7 +29,7 @@ namespace Asset_tracker_with_database
 
                     Console.ForegroundColor= ConsoleColor.Red;
 
-                    Console.WriteLine($"You don't have an office in here. Please try another office.");
+                    Console.WriteLine($"You don't have an office in here. Please try another office: ");
                     
                     Console.ResetColor();
 

@@ -33,7 +33,7 @@ namespace Asset_tracker_with_database
             }
         }
 
-        private static void TableRows(Asset asset) // Template for table rows.
+        public static void TableRows(Asset asset) // Template for table rows.
         {
             var exchangeCurrency = CurrencyPrice(asset);
 
@@ -49,10 +49,9 @@ namespace Asset_tracker_with_database
             }
             Console.WriteLine("| {0} | {1} | {2} | {3} | {4} | {5} | {6} | {7} |", PadCenter(asset.Type, 13), PadCenter(asset.Brand, 18), PadCenter(asset.AssetModel, 18), PadCenter(asset.Office, 13), PadCenter(asset.PurchaseDate.Date.ToShortDateString(), 13), PadCenter(asset.USDprice.ToString(), 13), PadCenter(exchangeCurrency.ElementAt(0).Key, 13), PadCenter(localPrice.ToString(), 17));
         }
-        public static void Table(AssetDbContext Context) // Builds the table.
-        {
-            List<Asset> assets = Context.Assets.ToList(); // Assets from the database.
 
+        public static void TableHeaders()
+        {
             Console.ForegroundColor = ConsoleColor.Green; // Constructs the header columns.
 
             Console.WriteLine(new string('-', 143));
@@ -62,6 +61,12 @@ namespace Asset_tracker_with_database
             Console.WriteLine(new string('-', 143));
 
             Console.ResetColor();
+        }
+        public static void Table(AssetDbContext Context) // Builds the table.
+        {
+            List<Asset> assets = Context.Assets.ToList(); // Assets from the database.
+
+            TableHeaders();
 
             var sortedAssets = assets.OrderBy(asset => asset.Type).ThenBy(asset => asset.PurchaseDate);
 
