@@ -5,27 +5,27 @@ namespace Asset_tracker_with_database
 {
     internal class InputCheckers
     {
-        public static bool OfficeCheck(string input) // Verifying valid offices.
+        public static string OfficeCheck(string office) // Verifying valid offices.
         {
             
-            switch (input)
+            switch (office)
             {
-                case "": return true;
+                case "": return "";
                 case "Spain":
                 case "spain":
-                    return false;
+                    return "Spain";
 
                 case "Sweden":
                 case "sweden":
-                    return false;
+                    return "Sweden";
 
                 case "USA":
                 case "usa":
                 case "US":
                 case "us":
-                    return false;
+                    return "USA";
 
-                    default : return true;
+                    default : return "";
             }
         }
     }

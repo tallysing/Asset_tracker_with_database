@@ -23,15 +23,17 @@ namespace Asset_tracker_with_database
 
                 Console.Write("Please provide the location of the office; Sweden, Spain or USA: ");
 
-                string office= Console.ReadLine();
+                string office = InputCheckers.OfficeCheck(Console.ReadLine());
 
-                while (InputCheckers.OfficeCheck(office)){ // Checking office
+                while (office==""){ // Checking office
 
                     Console.ForegroundColor= ConsoleColor.Red;
 
-                    Console.WriteLine($"You don't have an office in {office}. Please try another office.");
-
+                    Console.WriteLine($"You don't have an office in here. Please try another office.");
+                    
                     Console.ResetColor();
+
+                    office = InputCheckers.OfficeCheck(Console.ReadLine());
                 }
                 asset.Office = office;
 
