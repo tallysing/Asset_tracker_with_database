@@ -11,7 +11,7 @@ namespace Asset_tracker_with_database
         public DateTime PurchaseDate { get; set; }
         public int USDprice { get; set; }
 
-        public static void Delete(AssetDbContext Context)
+        public static void Delete(AssetDbContext Context) // Deletes assets
         {
             Console.Write("Please, enter the model name of the asset you want to delete: ");
 
@@ -47,7 +47,7 @@ namespace Asset_tracker_with_database
             }
         }
 
-        public static void Move(AssetDbContext Context)
+        public static void Move(AssetDbContext Context) // Move assets to another office location
         {
             do
             {
