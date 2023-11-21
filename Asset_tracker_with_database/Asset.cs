@@ -13,7 +13,7 @@ namespace Asset_tracker_with_database
 
         public static void Delete(AssetDbContext Context)
         {
-            Console.WriteLine("Please, enter the model name of the asset you want to delete: ");
+            Console.Write("Please, enter the model name of the asset you want to delete: ");
 
             string assetModel=Console.ReadLine();
 
@@ -45,6 +45,55 @@ namespace Asset_tracker_with_database
                     Delete(Context);
                     break;
             }
+        }
+
+        public static void Move(AssetDbContext Context)
+        {
+            do
+            {
+                Console.Write("Please, enter the model name of the asset you want to move: ");
+
+                string assetModel = Console.ReadLine();
+
+                Asset movedAsset = Context.Assets.FirstOrDefault(asset => asset.AssetModel == assetModel);
+
+                ViewAssets.TableHeaders();
+
+                ViewAssets.TableRows(movedAsset);
+
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+
+                Console.Write("Please enter the office location you want to move to; Sweden, Spain or USA : ");
+
+                Console.ResetColor();
+
+                string answer = InputCheckers.OfficeCheck(Console.ReadLine());
+
+                while (answer == "")
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+
+                    Console.Write($"You don't have an office on this place. Please try another office location: ");
+
+                    Console.ResetColor();
+
+                    answer = InputCheckers.OfficeCheck(Console.ReadLine());
+                }
+                movedAsset.Office = answer;
+
+                Context.Assets.Update(movedAsset);
+
+                Context.SaveChanges();
+
+                Console.ForegroundColor = ConsoleColor.Blue;
+
+                Console.WriteLine("Please enter Q if you want to go back or just enter if you want to continue.");
+
+                Console.ResetColor();
+
+            } while (Console.ReadLine() == "");
+
+            Interface.Selection();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Asset_tracker_with_database
         {
             Console.ForegroundColor = ConsoleColor.Blue;
 
-            Console.WriteLine("To register an asset enter \"R\" | To view your assets enter \"V\" To delete assets' enter \"D\"");
+            Console.WriteLine("To register an asset enter \"R\" | To view your assets enter \"V\" | To move assets to another location enter \"M\" | To delete assets' enter \"D\"");
 
             Console.ResetColor();
 
@@ -20,7 +20,11 @@ namespace Asset_tracker_with_database
                 case "V": ViewAssets.Table(Context);
                 break;
 
-                case "D": Asset.Delete(Context); break;
+                case "D": Asset.Delete(Context); 
+                    break;
+
+                case "M": Asset.Move(Context);
+                    break;
 
                 default: Console.ForegroundColor= ConsoleColor.Red;
 

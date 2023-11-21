@@ -84,7 +84,7 @@ namespace Asset_tracker_with_database
                 }
                 else if (timeSpan >= TimeSpan.FromDays(365 * 3 - 180))
                 {
-                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
 
                     TableRows(asset);
 

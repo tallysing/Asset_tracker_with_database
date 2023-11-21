@@ -33,7 +33,7 @@ namespace Asset_tracker_with_database
         {
             Console.ForegroundColor = ConsoleColor.Blue;
 
-            Console.WriteLine("Please enter Q if you want to go back or just enter if you want delete another asset.");
+            Console.WriteLine("Please enter Q if you want to go back or just enter if you want to continue.");
 
             Console.ResetColor();
 
@@ -55,5 +55,6 @@ namespace Asset_tracker_with_database
                     break;
             }
         }
+
     }
 }
