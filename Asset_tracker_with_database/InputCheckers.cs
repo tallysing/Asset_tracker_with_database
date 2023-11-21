@@ -29,7 +29,7 @@ namespace Asset_tracker_with_database
             }
         }
 
-        public static void GoBack()
+        public static void GoBack(AssetDbContext Context)
         {
             Console.ForegroundColor = ConsoleColor.Blue;
 
@@ -37,7 +37,7 @@ namespace Asset_tracker_with_database
 
             Console.ResetColor();
 
-            switch (Console.ReadLine())
+            switch (Console.ReadLine().ToUpper())
             {
                 case "Q": Interface.Selection(); 
                     break;
@@ -45,7 +45,13 @@ namespace Asset_tracker_with_database
                 case "": Asset.Delete(Context);
                     break;
 
-                    default: Console.WriteLine("Wrong input, pleas try again!");
+                    default: Console.ForegroundColor= ConsoleColor.Red;
+                    
+                    Console.WriteLine("Wrong input, pleas try again!");
+
+                    Console.ResetColor();
+
+                    GoBack(Context);
                     break;
             }
         }

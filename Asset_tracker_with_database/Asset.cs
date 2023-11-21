@@ -34,12 +34,13 @@ namespace Asset_tracker_with_database
                 case "Y": Context.Assets.Remove(deletedAsset); 
                     Context.SaveChanges();
 
+                    InputCheckers.GoBack(Context);
                     break;
 
-                case "N": Console.WriteLine("Please enter q if you want to go back or just enter if you want delete another asset.");
+                case "N": InputCheckers.GoBack(Context);
                     break;
 
-                    default: Console.WriteLine("Wrong input, please try again!");
+                    default: InputCheckers.GoBack(Context);
                     
                     Delete(Context);
                     break;
